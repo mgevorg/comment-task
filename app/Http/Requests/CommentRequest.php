@@ -22,7 +22,10 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'body' => 'required|string',
+            'commentable_type' => 'required|in:post,video',
+            'commentable_id' => 'required|integer',
         ];
     }
 }
